@@ -10,6 +10,9 @@ export class CardService {
   constructor(private http : HttpClient) { }
 
   getRandomCards() : Observable<any>{
-    return this.http.get('http://localhost:5051/api/Deck');
+    return this.http.get('https://cardplaygame.azurewebsites.net/api/Deck');
+  }
+  getSortedResult(card:any[]) : Observable<any>{
+    return this.http.post('https://cardplaygame.azurewebsites.net/api/Cards',card);
   }
 }

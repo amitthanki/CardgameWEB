@@ -11,16 +11,26 @@ export class AppComponent {
   constructor(private cardServices: CardService){
 
   }
-  public list1: any[] = []
+  public sourceList: any[] = []
 
-  public list2: any[] = []
+  public targetList: any[] = []
+  public sortedCardList: any[] = []
   ngOnInit() {
     this.cardServices.getRandomCards().subscribe(res=>{
       console.log("res",res);
-      this.list1 = res;
-    })
-  //  this.list1 = []
-    this.list2 = []
-    console.log("ffd",this.list2)
+      this.sourceList = res;
+    },error => {
+            console.log(error);
+    });
+        
+   
+}
+sortCard(){
+  this.cardServices.getSortedResult(this.targetList).subscribe(res=>{
+    console.log("res",res);
+    this.sortedCardList = res;
+  },error => {
+          console.log(error);
+  });
 }
 }

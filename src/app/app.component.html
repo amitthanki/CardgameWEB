@@ -315,13 +315,17 @@
 </div>
 
 <div class="content" role="main">
-  <p-pickList [source]="list1" [target]="list2"  [responsive]="true"  [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}">
+  <p-pickList [source]="sourceList" [target]="targetList"  [responsive]="true"  [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}">
     <ng-template let-car pTemplate="item">
         <div>
-           <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car}}</div>
+           <div>{{car}}</div>
         </div>
     </ng-template>
 </p-pickList>
+<p-button label="Sort" (onClick)="sortCard()"></p-button>
+<div>
+  {{sortedCardList | json}}
+</div>
   
 </div>
 
